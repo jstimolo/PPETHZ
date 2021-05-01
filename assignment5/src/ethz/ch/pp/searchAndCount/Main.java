@@ -5,7 +5,7 @@ import ethz.ch.pp.util.Workload;
 
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException  {
 		RandomGenerator dg = new RandomGenerator();
 		int[] input = dg.randomArray(1024*1024);
 		
@@ -60,16 +60,14 @@ public class Main {
 	}
 	
 	
-	public static void taskB(int[] input, Workload.Type wt){
+	public static void taskB(int[] input, Workload.Type wt) throws InterruptedException {
 		System.out.println("=====================================");
 		System.out.println("TaskB");
 		
 		final int CUTOFF = 1;
+		int res = 0;
 		
-		int res = SearchAndCountThreadDivideAndConquer.countNoAppearances(input,wt,CUTOFF,0);
-		SearchAndCountThreadDivideAndConquer t = new SearchAndCountThreadDivideAndConquer(input.length-1,0);
-		t.start();
-		
+		res = SearchAndCountThreadDivideAndConquer.countNoAppearances(input,wt,1,10);
 		
 		System.out.println("Check if Div&Conq_Par gives same result as seqSearch:");
 		System.out.println("DivAndConq_Par:  "+res);
