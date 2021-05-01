@@ -18,27 +18,27 @@ public class SearchAndCountSeqDivideAndConquer {
 	*/
 	
 	public static int countNoAppearances(int[] input, Workload.Type wt) {
-		ArrayList<Integer> list = new ArrayList<Integer>();
-
-		//Filter out LIGHT from HEAVY (count only heavy)
-		for (int i = 0; i < input.length; i++) {
-			if (Workload.doWork(input[i], wt))
-				list.add(input[i]);
-		}
-		return count_rec(list, 0, list.size() - 1);
+		return count_rec(input, 0, input.length - 1,wt);
 	}
 	
 
 	//Don't count content!! just add one if not heavy:
-	public static int count_rec(ArrayList<Integer> list, int lo, int hi) {
+	public static int count_rec(int[] list, int lo, int hi, Workload.Type wt) {
 		int mid = (lo + hi) / 2;
+		boolean heavy = (Workload.doWork(list[lo], wt));
 
-		if (lo == hi) {
-			return 1;
-		}
 		
-		int sum_left = count_rec(list, lo, mid);
-		int sum_right = count_rec(list, mid+1, hi);
+		if (lo == hi) {
+			//System.out.println(list[lo]+" "+heavy);
+			if(!heavy) {
+				return 0;
+			} else {
+				return 1;
+			}
+		} 
+			
+		int sum_left = count_rec(list, lo, mid, wt);
+		int sum_right = count_rec(list, mid+1, hi, wt);
 		return sum_left + sum_right;
 	}
 }

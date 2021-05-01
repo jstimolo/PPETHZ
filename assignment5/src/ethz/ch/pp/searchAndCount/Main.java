@@ -54,8 +54,9 @@ public class Main {
 		System.out.println("=====================================");
 		System.out.println("TaskA");
 			
-			System.out.println("DivAndConq_Seq: "+SearchAndCountSeqDivideAndConquer.countNoAppearances(input,wt));
-			System.out.println("Search: "+SearchAndCountSeq.countNoAppearances(input,wt));
+		System.out.println("Check if Div&Conq gives same result as seqSearch:");
+			System.out.println("DivAndConq_Seq:  "+SearchAndCountSeqDivideAndConquer.countNoAppearances(input,wt));
+			System.out.println("Seq_Search:      "+SearchAndCountSeq.countNoAppearances(input,wt));
 	}
 	
 	
