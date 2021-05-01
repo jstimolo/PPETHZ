@@ -7,7 +7,7 @@ public class SearchAndCountSeq {
 	private int[] input;	
 	Workload.Type workloadType;
 
-	private SearchAndCountSeq(int[] input, Workload.Type wt) {
+	SearchAndCountSeq(int[] input, Workload.Type wt) {
 		this.input = input;		
 		this.workloadType = wt;
 	}
@@ -19,9 +19,10 @@ public class SearchAndCountSeq {
 	}
 
 	// count the number of elements for which doWork returns true
-	private int count() {
+	int count() {
 		int count = 0;
 		for (int i = 0; i < input.length; i++) {
+			//Count if HEAWY
 			if (Workload.doWork(input[i], workloadType))
 				count++;
 		}		

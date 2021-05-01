@@ -1,4 +1,4 @@
-package ethz.ch.pp.searchAndCount;
+                                                                              package ethz.ch.pp.searchAndCount;
 
 import ethz.ch.pp.util.RandomGenerator;
 import ethz.ch.pp.util.Workload;
@@ -26,11 +26,38 @@ public class Main {
 				+ ((t1 - t0)/5) + " msec");
 	}
 	
+	//non-zero number => light workload
+	//prime => heavy workload
+	
+	
+	/*
+	 * Task A: The HR manager hired you to speed-up the screening process by
+	 * creating a parallel version of the program. As a first step, you need to
+	 * decide how to split the problem into smaller tasks to be solved in parallel.
+	 * For this purpose rewrite the sequential version using the Divide and Conquer
+	 * design pattern: 
+	 * 
+	 * 	Divide and Conquer: 
+	 * 		if cannot divide: 
+	 * 			return unitary solution (stop recursion) 
+	 * 		divide problem into two 
+	 * 		solve first (recursively) 
+	 * 		solve second (recursively)
+	 * 		return combine solutions
+	 * 
+	 * Complete the sequential implementation using the Divide and Conquer design 
+	 * pattern in the provided skeleton class SearchAndCountSeqDivideAndConquer. 
+	 * Make sure that your implementation is correct.
+	 */
+
 	public static void taskA(int[] input, Workload.Type wt){
 		System.out.println("=====================================");
 		System.out.println("TaskA");
-		//TODO: implement
+			
+			System.out.println("DivAndConq_Seq: "+SearchAndCountSeqDivideAndConquer.countNoAppearances(input,wt));
+			System.out.println("Search: "+SearchAndCountSeq.countNoAppearances(input,wt));
 	}
+	
 	
 	public static void taskB(int[] input, Workload.Type wt){
 		System.out.println("=====================================");
