@@ -5,7 +5,7 @@ import ethz.ch.pp.util.Workload;
 public class SearchAndCountThreadDivideAndConquer  {
 
 	
-	public static int countNoAppearances(int[] input, Workload.Type wt, int cutOff, int numThreads) throws InterruptedException {
+	public static int countNoAppearances(int[] input, Workload.Type wt, int cutOff, int numThreads) {
 		int result = 0;
 		int listSize = input.length;
 		int subSectionSize = listSize/numThreads;
@@ -20,7 +20,12 @@ public class SearchAndCountThreadDivideAndConquer  {
 
 		// Combine results:
 		for (int i = 0; i < numThreads; i++) {
-			ts[i].join();
+			try {
+				ts[i].join();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			result += ts[i].result;
 		}
 
