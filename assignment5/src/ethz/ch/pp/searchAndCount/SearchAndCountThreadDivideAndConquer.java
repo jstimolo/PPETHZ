@@ -8,7 +8,7 @@ public class SearchAndCountThreadDivideAndConquer extends Thread {
 	public static int cutoff,hi,lo,result;
 	
 	
-	SearchAndCountThreadDivideAndConquer(int lo, int hi){
+	SearchAndCountThreadDivideAndConquer(int hi, int lo){
 		this.lo = lo;
 		this.hi = hi;
 	}
@@ -19,14 +19,14 @@ public class SearchAndCountThreadDivideAndConquer extends Thread {
 		cutoff = cutOff;
 		hi = input.length-1;
 		lo = 0;
-		Thread t = new Thread();
+		SearchAndCountThreadDivideAndConquer t = new SearchAndCountThreadDivideAndConquer(hi,lo);
 		t.start();
 		return result;
 	}
 	
 	
 	public void run(){
-		System.out.println("hello");
+		System.out.println(result);
 		boolean heavy = (Workload.doWork(list[lo], wlt));
 		int size = hi-lo;
 		
