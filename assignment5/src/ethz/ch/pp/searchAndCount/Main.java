@@ -54,7 +54,7 @@ public class Main {
 		System.out.println("=====================================");
 		System.out.println("TaskA");
 			
-		System.out.println("Check if Div&Conq gives same result as seqSearch:");
+		System.out.println("Check if Div&Conq_Seq gives same result as seqSearch:");
 			System.out.println("DivAndConq_Seq:  "+SearchAndCountSeqDivideAndConquer.countNoAppearances(input,wt));
 			System.out.println("Seq_Search:      "+SearchAndCountSeq.countNoAppearances(input,wt));
 	}
@@ -63,7 +63,12 @@ public class Main {
 	public static void taskB(int[] input, Workload.Type wt){
 		System.out.println("=====================================");
 		System.out.println("TaskB");
-		//TODO: implement
+		
+		final int CUTOFF = 1;
+		
+		System.out.println("Check if Div&Conq_Par gives same result as seqSearch:");
+		System.out.println("DivAndConq_Par:  "+SearchAndCountThreadDivideAndConquer.countNoAppearances(input, wt, CUTOFF, 99));
+		System.out.println("Seq_Search:      "+SearchAndCountSeq.countNoAppearances(input,wt));
 	}
 	
 	public static void taskC(int[] input, Workload.Type wt){
