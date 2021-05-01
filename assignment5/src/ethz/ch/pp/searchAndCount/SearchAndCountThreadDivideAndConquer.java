@@ -19,14 +19,11 @@ public class SearchAndCountThreadDivideAndConquer extends Thread {
 		cutoff = cutOff;
 		hi = input.length-1;
 		lo = 0;
-		SearchAndCountThreadDivideAndConquer t = new SearchAndCountThreadDivideAndConquer(hi,lo);
-		t.start();
 		return result;
 	}
 	
 	
 	public void run(){
-		System.out.println(result);
 		boolean heavy = (Workload.doWork(list[lo], wlt));
 		int size = hi-lo;
 		

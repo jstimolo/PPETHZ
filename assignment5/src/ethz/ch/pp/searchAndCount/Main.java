@@ -66,8 +66,13 @@ public class Main {
 		
 		final int CUTOFF = 1;
 		
+		int res = SearchAndCountThreadDivideAndConquer.countNoAppearances(input,wt,CUTOFF,0);
+		SearchAndCountThreadDivideAndConquer t = new SearchAndCountThreadDivideAndConquer(input.length-1,0);
+		t.start();
+		
+		
 		System.out.println("Check if Div&Conq_Par gives same result as seqSearch:");
-		System.out.println("DivAndConq_Par:  "+SearchAndCountThreadDivideAndConquer.countNoAppearances(input, wt, CUTOFF, 99));
+		System.out.println("DivAndConq_Par:  "+res);
 		System.out.println("Seq_Search:      "+SearchAndCountSeq.countNoAppearances(input,wt));
 	}
 	
